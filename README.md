@@ -1,4 +1,4 @@
-# PPYTECH Financial Dashboard
+# Financial Dashboard
 
 A modern financial dashboard application built with Next.js 14, TypeScript, and shadcn/ui components.
 
@@ -24,8 +24,8 @@ A modern financial dashboard application built with Next.js 14, TypeScript, and 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/ppytech-dashboard.git
-cd ppytech-dashboard
+git clone https://github.com/codexdhruv11/Financial-Dashboard.git
+cd Financial-Dashboard
 ```
 
 2. Install dependencies:
@@ -57,7 +57,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## 📁 Project Structure
 
 ```
-ppytech-dashboard/
+Financial-Dashboard/
 ├── app/                    # Next.js App Router pages and layouts
 │   ├── layout.tsx         # Root layout with sidebar
 │   ├── page.tsx           # Dashboard home page
@@ -146,10 +146,12 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the MIT License.
 
-## 👥 Contact
+## 👥 Author
 
-For questions or support, please contact the PPYTECH team at dhruv@ppytech.com
+**Built by Dhruv**
+
+For questions or support, please reach out through the GitHub repository.
 
 ---
 
-Built with ❤️ by PPYTECH
+Built with ❤️ by Dhruv

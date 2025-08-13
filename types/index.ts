@@ -182,6 +182,7 @@ export interface Todo {
 
 export interface TodoContextType {
   todos: Todo[]
+  initialized: boolean
   addTodo: (title: string, description?: string, scheme?: string) => void
   completeTodo: (id: string) => void
   wishTodo: (id: string) => void

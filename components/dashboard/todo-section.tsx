@@ -15,7 +15,7 @@ import { AlertCircle, CheckCircle2, Clock, Star, Info } from 'lucide-react'
 
 export function ToDoSection() {
   const router = useRouter()
-  const { todos, wishTodo, remindTodo, completeTodo } = useTodoContext()
+  const { todos, initialized, wishTodo, remindTodo, completeTodo } = useTodoContext()
   
   // Filter out completed todos for display
   const activeTodos = todos.filter(todo => todo.status !== TodoStatus.Completed)
@@ -53,6 +53,31 @@ export function ToDoSection() {
       default:
         return <Info className="h-4 w-4" />
     }
+  }
+  
+  // Show loading skeletons while initializing
+  if (!initialized) {
+    return (
+      <DashboardCard>
+        <div className="p-6 space-y-4">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="p-4 border rounded-lg">
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex-1 space-y-2">
+                  <Skeleton className="h-5 w-3/4" />
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-3 w-1/4" />
+                </div>
+                <div className="flex gap-2">
+                  <Skeleton className="h-8 w-20" />
+                  <Skeleton className="h-8 w-20" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </DashboardCard>
+    )
   }
   
   if (activeTodos.length === 0) {

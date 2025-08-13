@@ -1,5 +1,5 @@
 import { clsx, type ClassValue } from 'clsx'
-import { Transaction, TransactionType, TransactionStatus, Asset, AssetCategory, MarketData, Lead, LeadSource, LeadStatus } from '@/types'
+import { Transaction, TransactionType, TransactionStatus, Asset, AssetCategory, MarketData, Lead, LeadSource, LeadStatus, TodoStatus, Todo } from '@/types'
 import { 
   ArrowUpRight, 
   ArrowDownLeft, 
@@ -930,7 +930,7 @@ export function generateTodoId(): string {
 /**
  * Create sample todos for demonstration
  */
-export function createSampleTodos() {
+export function createSampleTodos(): Todo[] {
   return [
     {
       id: generateTodoId(),
@@ -938,14 +938,14 @@ export function createSampleTodos() {
       description: "Quarterly review of HDFC Mid-Cap Opportunities Fund returns and rebalancing decision",
       scheme: "HDFC Mid-Cap",
       createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
-      status: 'open' as const,
+      status: TodoStatus.Open,
     },
     {
       id: generateTodoId(),
       title: "Market Alert: Tech Sector Correction",
       description: "Technology sector showing 10% correction - consider increasing allocation",
       createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
-      status: 'open' as const,
+      status: TodoStatus.Open,
     },
     {
       id: generateTodoId(),
@@ -953,7 +953,23 @@ export function createSampleTodos() {
       description: "New fund offer closing on 15th March. Min investment ₹5,000",
       scheme: "ICICI Bluechip",
       createdAt: new Date().toISOString(),
-      status: 'open' as const,
+      status: TodoStatus.Open,
+    },
+    {
+      id: generateTodoId(),
+      title: "Tax Saving Investment Deadline",
+      description: "Invest in ELSS funds before March 31st for tax benefits under 80C",
+      createdAt: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
+      status: TodoStatus.Open,
+    },
+    {
+      id: generateTodoId(),
+      title: "SIP Review for Axis Small Cap Fund",
+      description: "Monthly SIP of ₹10,000 - Review performance after 6 months",
+      scheme: "Axis Small Cap",
+      createdAt: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
+      status: TodoStatus.Reminded,
+      remindAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
     },
   ]
 }
@@ -977,15 +993,15 @@ export function formatTodoDate(date: string): string {
 /**
  * Get color classes for todo status
  */
-export function getTodoStatusColor(status: string): string {
+export function getTodoStatusColor(status: TodoStatus): string {
   switch (status) {
-    case 'open':
+    case TodoStatus.Open:
       return 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-    case 'completed':
+    case TodoStatus.Completed:
       return 'text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20'
-    case 'wished':
+    case TodoStatus.Wished:
       return 'text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20'
-    case 'reminded':
+    case TodoStatus.Reminded:
       return 'text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/20'
     default:
       return 'text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900/20'

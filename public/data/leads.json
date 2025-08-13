@@ -1,0 +1,392 @@
+[
+  {
+    "id": "lead-001",
+    "company": "TechStart Solutions",
+    "contactName": "Sarah Johnson",
+    "contactEmail": "sarah.johnson@techstart.com",
+    "contactPhone": "+1-555-0101",
+    "source": "Website",
+    "status": "Qualified",
+    "potentialValue": 250000,
+    "assignedTo": "Mike Chen",
+    "createdDate": "2024-07-15T10:00:00Z",
+    "lastContactedDate": "2024-08-10T14:30:00Z",
+    "interactionHistory": [
+      {
+        "date": "2024-07-15T10:00:00Z",
+        "type": "Note",
+        "summary": "Lead came through website contact form"
+      },
+      {
+        "date": "2024-07-16T09:00:00Z",
+        "type": "Email",
+        "summary": "Sent welcome email with company overview"
+      },
+      {
+        "date": "2024-07-18T14:00:00Z",
+        "type": "Call",
+        "summary": "Initial discovery call - interested in portfolio management"
+      },
+      {
+        "date": "2024-08-10T14:30:00Z",
+        "type": "Meeting",
+        "summary": "In-person meeting to discuss investment strategies"
+      }
+    ]
+  },
+  {
+    "id": "lead-002",
+    "company": "Global Manufacturing Inc.",
+    "contactName": "Robert Chen",
+    "contactEmail": "r.chen@globalmanufacturing.com",
+    "contactPhone": "+1-555-0102",
+    "source": "Referral",
+    "status": "Proposal Sent",
+    "potentialValue": 500000,
+    "assignedTo": "Jessica Williams",
+    "createdDate": "2024-06-20T11:00:00Z",
+    "lastContactedDate": "2024-08-08T10:00:00Z",
+    "interactionHistory": [
+      {
+        "date": "2024-06-20T11:00:00Z",
+        "type": "Call",
+        "summary": "Referral from existing client"
+      },
+      {
+        "date": "2024-06-22T15:00:00Z",
+        "type": "Meeting",
+        "summary": "Initial meeting to understand requirements"
+      },
+      {
+        "date": "2024-07-05T09:00:00Z",
+        "type": "Email",
+        "summary": "Sent detailed proposal"
+      },
+      {
+        "date": "2024-08-08T10:00:00Z",
+        "type": "Call",
+        "summary": "Follow-up on proposal - client reviewing internally"
+      }
+    ]
+  },
+  {
+    "id": "lead-003",
+    "company": "Healthcare Innovations",
+    "contactName": "Dr. Emily Martinez",
+    "contactEmail": "emartinez@healthinnovations.com",
+    "contactPhone": "+1-555-0103",
+    "source": "Social Media",
+    "status": "Negotiation",
+    "potentialValue": 750000,
+    "assignedTo": "Mike Chen",
+    "createdDate": "2024-05-10T09:30:00Z",
+    "lastContactedDate": "2024-08-11T16:00:00Z",
+    "interactionHistory": [
+      {
+        "date": "2024-05-10T09:30:00Z",
+        "type": "Note",
+        "summary": "Connected on LinkedIn"
+      },
+      {
+        "date": "2024-05-15T14:00:00Z",
+        "type": "Call",
+        "summary": "Introduction call"
+      },
+      {
+        "date": "2024-06-01T10:00:00Z",
+        "type": "Meeting",
+        "summary": "Detailed requirements gathering"
+      },
+      {
+        "date": "2024-07-20T11:00:00Z",
+        "type": "Email",
+        "summary": "Sent customized investment proposal"
+      },
+      {
+        "date": "2024-08-11T16:00:00Z",
+        "type": "Meeting",
+        "summary": "Negotiating terms and fees"
+      }
+    ]
+  },
+  {
+    "id": "lead-004",
+    "company": "Retail Chain Express",
+    "contactName": "Michael Thompson",
+    "contactEmail": "mthompson@retailexpress.com",
+    "contactPhone": "+1-555-0104",
+    "source": "Email Marketing",
+    "status": "New",
+    "potentialValue": 150000,
+    "assignedTo": "Jessica Williams",
+    "createdDate": "2024-08-05T08:00:00Z",
+    "lastContactedDate": "2024-08-06T09:00:00Z",
+    "interactionHistory": [
+      {
+        "date": "2024-08-05T08:00:00Z",
+        "type": "Email",
+        "summary": "Responded to marketing campaign"
+      },
+      {
+        "date": "2024-08-06T09:00:00Z",
+        "type": "Email",
+        "summary": "Sent introduction materials"
+      }
+    ]
+  },
+  {
+    "id": "lead-005",
+    "company": "FinTech Startup Alpha",
+    "contactName": "Alex Kumar",
+    "contactEmail": "alex@fintechalpha.com",
+    "contactPhone": "+1-555-0105",
+    "source": "WhatsApp",
+    "status": "Closed - Won",
+    "potentialValue": 350000,
+    "assignedTo": "Mike Chen",
+    "createdDate": "2024-04-15T12:00:00Z",
+    "lastContactedDate": "2024-07-30T10:00:00Z",
+    "interactionHistory": [
+      {
+        "date": "2024-04-15T12:00:00Z",
+        "type": "Note",
+        "summary": "WhatsApp inquiry about services"
+      },
+      {
+        "date": "2024-04-20T14:00:00Z",
+        "type": "Call",
+        "summary": "Discovery call"
+      },
+      {
+        "date": "2024-05-10T10:00:00Z",
+        "type": "Meeting",
+        "summary": "Presentation of services"
+      },
+      {
+        "date": "2024-06-15T09:00:00Z",
+        "type": "Email",
+        "summary": "Proposal accepted"
+      },
+      {
+        "date": "2024-07-30T10:00:00Z",
+        "type": "Meeting",
+        "summary": "Onboarding completed"
+      }
+    ]
+  },
+  {
+    "id": "lead-006",
+    "company": "Energy Solutions Corp",
+    "contactName": "Patricia Green",
+    "contactEmail": "pgreen@energysolutions.com",
+    "contactPhone": "+1-555-0106",
+    "source": "Cold Call",
+    "status": "Contacted",
+    "potentialValue": 450000,
+    "assignedTo": "Jessica Williams",
+    "createdDate": "2024-07-01T13:00:00Z",
+    "lastContactedDate": "2024-08-09T11:00:00Z",
+    "interactionHistory": [
+      {
+        "date": "2024-07-01T13:00:00Z",
+        "type": "Call",
+        "summary": "Cold call - initial interest"
+      },
+      {
+        "date": "2024-07-10T10:00:00Z",
+        "type": "Email",
+        "summary": "Sent company information"
+      },
+      {
+        "date": "2024-08-09T11:00:00Z",
+        "type": "Call",
+        "summary": "Follow-up call - scheduling meeting"
+      }
+    ]
+  },
+  {
+    "id": "lead-007",
+    "company": "Legal Associates LLP",
+    "contactName": "James Wilson",
+    "contactEmail": "jwilson@legalassociates.com",
+    "contactPhone": "+1-555-0107",
+    "source": "Referral",
+    "status": "Closed - Lost",
+    "potentialValue": 200000,
+    "assignedTo": "Mike Chen",
+    "createdDate": "2024-05-20T10:00:00Z",
+    "lastContactedDate": "2024-07-15T14:00:00Z",
+    "interactionHistory": [
+      {
+        "date": "2024-05-20T10:00:00Z",
+        "type": "Email",
+        "summary": "Referral from partner firm"
+      },
+      {
+        "date": "2024-06-01T11:00:00Z",
+        "type": "Meeting",
+        "summary": "Initial consultation"
+      },
+      {
+        "date": "2024-07-15T14:00:00Z",
+        "type": "Call",
+        "summary": "Decided to go with competitor"
+      }
+    ]
+  },
+  {
+    "id": "lead-008",
+    "company": "Real Estate Developers",
+    "contactName": "Linda Brown",
+    "contactEmail": "lbrown@realestate-dev.com",
+    "contactPhone": "+1-555-0108",
+    "source": "Website",
+    "status": "Qualified",
+    "potentialValue": 600000,
+    "assignedTo": "Jessica Williams",
+    "createdDate": "2024-07-25T09:00:00Z",
+    "lastContactedDate": "2024-08-12T13:00:00Z",
+    "interactionHistory": [
+      {
+        "date": "2024-07-25T09:00:00Z",
+        "type": "Note",
+        "summary": "Website form submission"
+      },
+      {
+        "date": "2024-07-26T10:00:00Z",
+        "type": "Call",
+        "summary": "Qualification call"
+      },
+      {
+        "date": "2024-08-12T13:00:00Z",
+        "type": "Meeting",
+        "summary": "Needs assessment meeting"
+      }
+    ]
+  },
+  {
+    "id": "lead-009",
+    "company": "Education First Academy",
+    "contactName": "David Lee",
+    "contactEmail": "dlee@educationfirst.com",
+    "contactPhone": "+1-555-0109",
+    "source": "Social Media",
+    "status": "New",
+    "potentialValue": 175000,
+    "assignedTo": "Mike Chen",
+    "createdDate": "2024-08-10T15:00:00Z",
+    "lastContactedDate": "2024-08-10T16:00:00Z",
+    "interactionHistory": [
+      {
+        "date": "2024-08-10T15:00:00Z",
+        "type": "Note",
+        "summary": "LinkedIn message inquiry"
+      },
+      {
+        "date": "2024-08-10T16:00:00Z",
+        "type": "Email",
+        "summary": "Sent initial response"
+      }
+    ]
+  },
+  {
+    "id": "lead-010",
+    "company": "Transport Logistics Inc",
+    "contactName": "Maria Rodriguez",
+    "contactEmail": "mrodriguez@transportlogistics.com",
+    "contactPhone": "+1-555-0110",
+    "source": "Email Marketing",
+    "status": "Proposal Sent",
+    "potentialValue": 425000,
+    "assignedTo": "Jessica Williams",
+    "createdDate": "2024-06-10T08:30:00Z",
+    "lastContactedDate": "2024-08-07T09:00:00Z",
+    "interactionHistory": [
+      {
+        "date": "2024-06-10T08:30:00Z",
+        "type": "Email",
+        "summary": "Response to email campaign"
+      },
+      {
+        "date": "2024-06-15T14:00:00Z",
+        "type": "Call",
+        "summary": "Discovery conversation"
+      },
+      {
+        "date": "2024-07-01T10:00:00Z",
+        "type": "Meeting",
+        "summary": "Requirements gathering"
+      },
+      {
+        "date": "2024-08-07T09:00:00Z",
+        "type": "Email",
+        "summary": "Sent detailed proposal"
+      }
+    ]
+  },
+  {
+    "id": "lead-011",
+    "company": "Fashion Boutique Chain",
+    "contactName": "Sophie Taylor",
+    "contactEmail": "staylor@fashionboutique.com",
+    "contactPhone": "+1-555-0111",
+    "source": "WhatsApp",
+    "status": "Contacted",
+    "potentialValue": 300000,
+    "assignedTo": "Mike Chen",
+    "createdDate": "2024-07-18T11:00:00Z",
+    "lastContactedDate": "2024-08-11T10:00:00Z",
+    "interactionHistory": [
+      {
+        "date": "2024-07-18T11:00:00Z",
+        "type": "Note",
+        "summary": "WhatsApp business inquiry"
+      },
+      {
+        "date": "2024-07-20T09:00:00Z",
+        "type": "Call",
+        "summary": "Initial discussion"
+      },
+      {
+        "date": "2024-08-11T10:00:00Z",
+        "type": "Email",
+        "summary": "Sent service overview"
+      }
+    ]
+  },
+  {
+    "id": "lead-012",
+    "company": "Agricultural Exports Ltd",
+    "contactName": "John Davis",
+    "contactEmail": "jdavis@agriexports.com",
+    "contactPhone": "+1-555-0112",
+    "source": "Referral",
+    "status": "Negotiation",
+    "potentialValue": 550000,
+    "assignedTo": "Jessica Williams",
+    "createdDate": "2024-05-25T12:00:00Z",
+    "lastContactedDate": "2024-08-10T15:00:00Z",
+    "interactionHistory": [
+      {
+        "date": "2024-05-25T12:00:00Z",
+        "type": "Call",
+        "summary": "Referral from bank partner"
+      },
+      {
+        "date": "2024-06-10T11:00:00Z",
+        "type": "Meeting",
+        "summary": "Initial consultation"
+      },
+      {
+        "date": "2024-07-15T10:00:00Z",
+        "type": "Email",
+        "summary": "Proposal submitted"
+      },
+      {
+        "date": "2024-08-10T15:00:00Z",
+        "type": "Meeting",
+        "summary": "Negotiating contract terms"
+      }
+    ]
+  }
+]

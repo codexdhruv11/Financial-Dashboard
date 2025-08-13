@@ -1,0 +1,382 @@
+[
+  {
+    "id": "asset-001",
+    "symbol": "AAPL",
+    "name": "Apple Inc.",
+    "category": "Stock",
+    "quantity": 100,
+    "currentPrice": 182.50,
+    "totalValue": 18250.00,
+    "costBasis": 15500.00,
+    "unrealizedGain": 2750.00,
+    "unrealizedGainPercent": 17.74,
+    "allocation": 8.5,
+    "performance": {
+      "day": 1.2,
+      "week": 3.5,
+      "month": 8.2,
+      "year": 24.5
+    }
+  },
+  {
+    "id": "asset-002",
+    "symbol": "MSFT",
+    "name": "Microsoft Corporation",
+    "category": "Stock",
+    "quantity": 50,
+    "currentPrice": 395.25,
+    "totalValue": 19762.50,
+    "costBasis": 17500.00,
+    "unrealizedGain": 2262.50,
+    "unrealizedGainPercent": 12.93,
+    "allocation": 9.2,
+    "performance": {
+      "day": 0.8,
+      "week": 2.1,
+      "month": 5.6,
+      "year": 18.3
+    }
+  },
+  {
+    "id": "asset-003",
+    "symbol": "GOOGL",
+    "name": "Alphabet Inc.",
+    "category": "Stock",
+    "quantity": 75,
+    "currentPrice": 145.80,
+    "totalValue": 10935.00,
+    "costBasis": 10200.00,
+    "unrealizedGain": 735.00,
+    "unrealizedGainPercent": 7.21,
+    "allocation": 5.1,
+    "performance": {
+      "day": -0.5,
+      "week": 1.8,
+      "month": 4.2,
+      "year": 15.6
+    }
+  },
+  {
+    "id": "asset-004",
+    "symbol": "SPY",
+    "name": "SPDR S&P 500 ETF",
+    "category": "ETF",
+    "quantity": 40,
+    "currentPrice": 448.25,
+    "totalValue": 17930.00,
+    "costBasis": 16500.00,
+    "unrealizedGain": 1430.00,
+    "unrealizedGainPercent": 8.67,
+    "allocation": 8.4,
+    "performance": {
+      "day": 0.6,
+      "week": 1.5,
+      "month": 3.8,
+      "year": 12.4
+    }
+  },
+  {
+    "id": "asset-005",
+    "symbol": "BND",
+    "name": "Vanguard Total Bond Market ETF",
+    "category": "Bond",
+    "quantity": 150,
+    "currentPrice": 78.50,
+    "totalValue": 11775.00,
+    "costBasis": 11800.00,
+    "unrealizedGain": -25.00,
+    "unrealizedGainPercent": -0.21,
+    "allocation": 5.5,
+    "performance": {
+      "day": 0.1,
+      "week": 0.3,
+      "month": 0.8,
+      "year": 2.5
+    }
+  },
+  {
+    "id": "asset-006",
+    "symbol": "NVDA",
+    "name": "NVIDIA Corporation",
+    "category": "Stock",
+    "quantity": 25,
+    "currentPrice": 478.60,
+    "totalValue": 11965.00,
+    "costBasis": 9500.00,
+    "unrealizedGain": 2465.00,
+    "unrealizedGainPercent": 25.95,
+    "allocation": 5.6,
+    "performance": {
+      "day": 2.3,
+      "week": 5.8,
+      "month": 12.5,
+      "year": 185.3
+    }
+  },
+  {
+    "id": "asset-007",
+    "symbol": "TSLA",
+    "name": "Tesla Inc.",
+    "category": "Stock",
+    "quantity": 30,
+    "currentPrice": 255.35,
+    "totalValue": 7660.50,
+    "costBasis": 7200.00,
+    "unrealizedGain": 460.50,
+    "unrealizedGainPercent": 6.40,
+    "allocation": 3.6,
+    "performance": {
+      "day": -1.2,
+      "week": -2.5,
+      "month": 8.9,
+      "year": 45.2
+    }
+  },
+  {
+    "id": "asset-008",
+    "symbol": "QQQ",
+    "name": "Invesco QQQ Trust",
+    "category": "ETF",
+    "quantity": 30,
+    "currentPrice": 378.90,
+    "totalValue": 11367.00,
+    "costBasis": 10500.00,
+    "unrealizedGain": 867.00,
+    "unrealizedGainPercent": 8.26,
+    "allocation": 5.3,
+    "performance": {
+      "day": 0.9,
+      "week": 2.3,
+      "month": 5.1,
+      "year": 18.7
+    }
+  },
+  {
+    "id": "asset-009",
+    "symbol": "HDFC",
+    "name": "HDFC Bank Limited",
+    "category": "Stock",
+    "quantity": 200,
+    "currentPrice": 58.75,
+    "totalValue": 11750.00,
+    "costBasis": 10000.00,
+    "unrealizedGain": 1750.00,
+    "unrealizedGainPercent": 17.50,
+    "allocation": 5.5,
+    "performance": {
+      "day": 0.5,
+      "week": 1.2,
+      "month": 3.5,
+      "year": 12.8
+    }
+  },
+  {
+    "id": "asset-010",
+    "symbol": "ICICI",
+    "name": "ICICI Bank Limited",
+    "category": "Stock",
+    "quantity": 150,
+    "currentPrice": 42.30,
+    "totalValue": 6345.00,
+    "costBasis": 5800.00,
+    "unrealizedGain": 545.00,
+    "unrealizedGainPercent": 9.40,
+    "allocation": 3.0,
+    "performance": {
+      "day": 0.8,
+      "week": 1.5,
+      "month": 4.2,
+      "year": 15.3
+    }
+  },
+  {
+    "id": "asset-011",
+    "symbol": "VXUS",
+    "name": "Vanguard Total International Stock ETF",
+    "category": "ETF",
+    "quantity": 100,
+    "currentPrice": 62.45,
+    "totalValue": 6245.00,
+    "costBasis": 6000.00,
+    "unrealizedGain": 245.00,
+    "unrealizedGainPercent": 4.08,
+    "allocation": 2.9,
+    "performance": {
+      "day": 0.3,
+      "week": 0.8,
+      "month": 2.1,
+      "year": 8.5
+    }
+  },
+  {
+    "id": "asset-012",
+    "symbol": "AMZN",
+    "name": "Amazon.com Inc.",
+    "category": "Stock",
+    "quantity": 40,
+    "currentPrice": 148.25,
+    "totalValue": 5930.00,
+    "costBasis": 5200.00,
+    "unrealizedGain": 730.00,
+    "unrealizedGainPercent": 14.04,
+    "allocation": 2.8,
+    "performance": {
+      "day": 1.1,
+      "week": 3.2,
+      "month": 7.5,
+      "year": 22.4
+    }
+  },
+  {
+    "id": "asset-013",
+    "symbol": "META",
+    "name": "Meta Platforms Inc.",
+    "category": "Stock",
+    "quantity": 20,
+    "currentPrice": 325.60,
+    "totalValue": 6512.00,
+    "costBasis": 5500.00,
+    "unrealizedGain": 1012.00,
+    "unrealizedGainPercent": 18.40,
+    "allocation": 3.0,
+    "performance": {
+      "day": 1.5,
+      "week": 4.2,
+      "month": 9.8,
+      "year": 135.6
+    }
+  },
+  {
+    "id": "asset-014",
+    "symbol": "JPM",
+    "name": "JPMorgan Chase & Co.",
+    "category": "Stock",
+    "quantity": 35,
+    "currentPrice": 162.80,
+    "totalValue": 5698.00,
+    "costBasis": 5250.00,
+    "unrealizedGain": 448.00,
+    "unrealizedGainPercent": 8.53,
+    "allocation": 2.7,
+    "performance": {
+      "day": 0.4,
+      "week": 1.1,
+      "month": 2.8,
+      "year": 18.9
+    }
+  },
+  {
+    "id": "asset-015",
+    "symbol": "V",
+    "name": "Visa Inc.",
+    "category": "Stock",
+    "quantity": 25,
+    "currentPrice": 272.30,
+    "totalValue": 6807.50,
+    "costBasis": 6250.00,
+    "unrealizedGain": 557.50,
+    "unrealizedGainPercent": 8.92,
+    "allocation": 3.2,
+    "performance": {
+      "day": 0.6,
+      "week": 1.4,
+      "month": 3.2,
+      "year": 11.5
+    }
+  },
+  {
+    "id": "asset-016",
+    "symbol": "VTIAX",
+    "name": "Vanguard Total International Stock Index Fund",
+    "category": "Mutual Fund",
+    "quantity": 200,
+    "currentPrice": 32.85,
+    "totalValue": 6570.00,
+    "costBasis": 6200.00,
+    "unrealizedGain": 370.00,
+    "unrealizedGainPercent": 5.97,
+    "allocation": 3.1,
+    "performance": {
+      "day": 0.2,
+      "week": 0.6,
+      "month": 1.8,
+      "year": 7.2
+    }
+  },
+  {
+    "id": "asset-017",
+    "symbol": "VTSAX",
+    "name": "Vanguard Total Stock Market Index Fund",
+    "category": "Mutual Fund",
+    "quantity": 150,
+    "currentPrice": 112.45,
+    "totalValue": 16867.50,
+    "costBasis": 15000.00,
+    "unrealizedGain": 1867.50,
+    "unrealizedGainPercent": 12.45,
+    "allocation": 7.9,
+    "performance": {
+      "day": 0.7,
+      "week": 1.6,
+      "month": 3.9,
+      "year": 13.2
+    }
+  },
+  {
+    "id": "asset-018",
+    "symbol": "BTC",
+    "name": "Bitcoin",
+    "category": "Crypto",
+    "quantity": 0.25,
+    "currentPrice": 42500.00,
+    "totalValue": 10625.00,
+    "costBasis": 8000.00,
+    "unrealizedGain": 2625.00,
+    "unrealizedGainPercent": 32.81,
+    "allocation": 5.0,
+    "performance": {
+      "day": 2.5,
+      "week": 8.3,
+      "month": 15.2,
+      "year": 85.4
+    }
+  },
+  {
+    "id": "asset-019",
+    "symbol": "ETH",
+    "name": "Ethereum",
+    "category": "Crypto",
+    "quantity": 2,
+    "currentPrice": 2850.00,
+    "totalValue": 5700.00,
+    "costBasis": 4000.00,
+    "unrealizedGain": 1700.00,
+    "unrealizedGainPercent": 42.50,
+    "allocation": 2.7,
+    "performance": {
+      "day": 3.2,
+      "week": 10.5,
+      "month": 18.7,
+      "year": 65.3
+    }
+  },
+  {
+    "id": "asset-020",
+    "symbol": "CASH",
+    "name": "Cash & Cash Equivalents",
+    "category": "Cash",
+    "quantity": 1,
+    "currentPrice": 8525.00,
+    "totalValue": 8525.00,
+    "costBasis": 8525.00,
+    "unrealizedGain": 0,
+    "unrealizedGainPercent": 0,
+    "allocation": 4.0,
+    "performance": {
+      "day": 0,
+      "week": 0,
+      "month": 0,
+      "year": 0
+    }
+  }
+]

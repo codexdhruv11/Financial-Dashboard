@@ -1,0 +1,282 @@
+[
+  {
+    "symbol": "^GSPC",
+    "name": "S&P 500",
+    "value": 4536.34,
+    "change": 42.15,
+    "changePercent": 0.94,
+    "timestamp": "2024-08-12T20:00:00Z",
+    "high52Week": 4607.07,
+    "low52Week": 3808.86,
+    "marketCap": 0,
+    "volume": 2456789000,
+    "sector": "Index",
+    "historicalData": [
+      {"date": "2024-08-12", "close": 4536.34},
+      {"date": "2024-08-09", "close": 4494.19},
+      {"date": "2024-08-08", "close": 4478.56},
+      {"date": "2024-08-07", "close": 4502.31},
+      {"date": "2024-08-06", "close": 4518.45}
+    ]
+  },
+  {
+    "symbol": "^IXIC",
+    "name": "NASDAQ Composite",
+    "value": 14124.09,
+    "change": 198.67,
+    "changePercent": 1.43,
+    "timestamp": "2024-08-12T20:00:00Z",
+    "high52Week": 14446.55,
+    "low52Week": 11670.89,
+    "marketCap": 0,
+    "volume": 4567890000,
+    "sector": "Index",
+    "historicalData": [
+      {"date": "2024-08-12", "close": 14124.09},
+      {"date": "2024-08-09", "close": 13925.42},
+      {"date": "2024-08-08", "close": 13884.32},
+      {"date": "2024-08-07", "close": 13996.85},
+      {"date": "2024-08-06", "close": 14034.97}
+    ]
+  },
+  {
+    "symbol": "^DJI",
+    "name": "Dow Jones Industrial Average",
+    "value": 35314.49,
+    "change": -87.51,
+    "changePercent": -0.25,
+    "timestamp": "2024-08-12T20:00:00Z",
+    "high52Week": 35679.13,
+    "low52Week": 31429.82,
+    "marketCap": 0,
+    "volume": 3254678000,
+    "sector": "Index",
+    "historicalData": [
+      {"date": "2024-08-12", "close": 35314.49},
+      {"date": "2024-08-09", "close": 35402.00},
+      {"date": "2024-08-08", "close": 35352.84},
+      {"date": "2024-08-07", "close": 35462.78},
+      {"date": "2024-08-06", "close": 35443.82}
+    ]
+  },
+  {
+    "symbol": "^NSEI",
+    "name": "NSE NIFTY 50",
+    "value": 24139.50,
+    "change": 213.27,
+    "changePercent": 0.89,
+    "timestamp": "2024-08-12T15:30:00Z",
+    "high52Week": 25078.30,
+    "low52Week": 18837.85,
+    "marketCap": 0,
+    "volume": 1265894000,
+    "sector": "Index",
+    "historicalData": [
+      {"date": "2024-08-12", "close": 24139.50},
+      {"date": "2024-08-09", "close": 23926.23},
+      {"date": "2024-08-08", "close": 23848.64},
+      {"date": "2024-08-07", "close": 23992.55},
+      {"date": "2024-08-06", "close": 24036.15}
+    ]
+  },
+  {
+    "symbol": "^BSESN",
+    "name": "BSE SENSEX",
+    "value": 79117.11,
+    "change": 408.86,
+    "changePercent": 0.52,
+    "timestamp": "2024-08-12T15:30:00Z",
+    "high52Week": 81332.72,
+    "low52Week": 61765.59,
+    "marketCap": 0,
+    "volume": 1568974000,
+    "sector": "Index",
+    "historicalData": [
+      {"date": "2024-08-12", "close": 79117.11},
+      {"date": "2024-08-09", "close": 78708.25},
+      {"date": "2024-08-08", "close": 78582.59},
+      {"date": "2024-08-07", "close": 78895.65},
+      {"date": "2024-08-06", "close": 78956.87}
+    ]
+  },
+  {
+    "symbol": "AAPL",
+    "name": "Apple Inc.",
+    "value": 182.50,
+    "change": 2.18,
+    "changePercent": 1.21,
+    "timestamp": "2024-08-12T20:00:00Z",
+    "high52Week": 199.62,
+    "low52Week": 164.08,
+    "marketCap": 2806000000000,
+    "volume": 52384720,
+    "sector": "Technology",
+    "historicalData": [
+      {"date": "2024-08-12", "close": 182.50},
+      {"date": "2024-08-09", "close": 180.32},
+      {"date": "2024-08-08", "close": 179.85},
+      {"date": "2024-08-07", "close": 181.23},
+      {"date": "2024-08-06", "close": 181.54}
+    ]
+  },
+  {
+    "symbol": "MSFT",
+    "name": "Microsoft Corporation",
+    "value": 395.25,
+    "change": 3.14,
+    "changePercent": 0.80,
+    "timestamp": "2024-08-12T20:00:00Z",
+    "high52Week": 430.82,
+    "low52Week": 309.42,
+    "marketCap": 2935000000000,
+    "volume": 23567890,
+    "sector": "Technology",
+    "historicalData": [
+      {"date": "2024-08-12", "close": 395.25},
+      {"date": "2024-08-09", "close": 392.11},
+      {"date": "2024-08-08", "close": 390.58},
+      {"date": "2024-08-07", "close": 393.27},
+      {"date": "2024-08-06", "close": 394.18}
+    ]
+  },
+  {
+    "symbol": "GOOGL",
+    "name": "Alphabet Inc.",
+    "value": 145.80,
+    "change": -0.73,
+    "changePercent": -0.50,
+    "timestamp": "2024-08-12T20:00:00Z",
+    "high52Week": 155.20,
+    "low52Week": 120.21,
+    "marketCap": 1894000000000,
+    "volume": 28456789,
+    "sector": "Technology",
+    "historicalData": [
+      {"date": "2024-08-12", "close": 145.80},
+      {"date": "2024-08-09", "close": 146.53},
+      {"date": "2024-08-08", "close": 145.94},
+      {"date": "2024-08-07", "close": 147.28},
+      {"date": "2024-08-06", "close": 147.56}
+    ]
+  },
+  {
+    "symbol": "NVDA",
+    "name": "NVIDIA Corporation",
+    "value": 478.60,
+    "change": 10.86,
+    "changePercent": 2.32,
+    "timestamp": "2024-08-12T20:00:00Z",
+    "high52Week": 974.00,
+    "low52Week": 393.80,
+    "marketCap": 1179000000000,
+    "volume": 45678900,
+    "sector": "Technology",
+    "historicalData": [
+      {"date": "2024-08-12", "close": 478.60},
+      {"date": "2024-08-09", "close": 467.74},
+      {"date": "2024-08-08", "close": 464.82},
+      {"date": "2024-08-07", "close": 471.93},
+      {"date": "2024-08-06", "close": 472.55}
+    ]
+  },
+  {
+    "symbol": "TSLA",
+    "name": "Tesla Inc.",
+    "value": 255.35,
+    "change": -3.12,
+    "changePercent": -1.21,
+    "timestamp": "2024-08-12T20:00:00Z",
+    "high52Week": 299.29,
+    "low52Week": 152.37,
+    "marketCap": 813000000000,
+    "volume": 78456123,
+    "sector": "Consumer Discretionary",
+    "historicalData": [
+      {"date": "2024-08-12", "close": 255.35},
+      {"date": "2024-08-09", "close": 258.47},
+      {"date": "2024-08-08", "close": 256.92},
+      {"date": "2024-08-07", "close": 260.15},
+      {"date": "2024-08-06", "close": 259.83}
+    ]
+  },
+  {
+    "symbol": "AMZN",
+    "name": "Amazon.com Inc.",
+    "value": 148.25,
+    "change": 1.58,
+    "changePercent": 1.08,
+    "timestamp": "2024-08-12T20:00:00Z",
+    "high52Week": 158.00,
+    "low52Week": 118.35,
+    "marketCap": 1540000000000,
+    "volume": 56789012,
+    "sector": "Consumer Discretionary",
+    "historicalData": [
+      {"date": "2024-08-12", "close": 148.25},
+      {"date": "2024-08-09", "close": 146.67},
+      {"date": "2024-08-08", "close": 145.93},
+      {"date": "2024-08-07", "close": 147.51},
+      {"date": "2024-08-06", "close": 147.28}
+    ]
+  },
+  {
+    "symbol": "META",
+    "name": "Meta Platforms Inc.",
+    "value": 325.60,
+    "change": 4.87,
+    "changePercent": 1.52,
+    "timestamp": "2024-08-12T20:00:00Z",
+    "high52Week": 531.49,
+    "low52Week": 274.38,
+    "marketCap": 897000000000,
+    "volume": 23456789,
+    "sector": "Technology",
+    "historicalData": [
+      {"date": "2024-08-12", "close": 325.60},
+      {"date": "2024-08-09", "close": 320.73},
+      {"date": "2024-08-08", "close": 318.54},
+      {"date": "2024-08-07", "close": 323.16},
+      {"date": "2024-08-06", "close": 322.89}
+    ]
+  },
+  {
+    "symbol": "JPM",
+    "name": "JPMorgan Chase & Co.",
+    "value": 162.80,
+    "change": 0.65,
+    "changePercent": 0.40,
+    "timestamp": "2024-08-12T20:00:00Z",
+    "high52Week": 173.96,
+    "low52Week": 135.19,
+    "marketCap": 469000000000,
+    "volume": 12345678,
+    "sector": "Financials",
+    "historicalData": [
+      {"date": "2024-08-12", "close": 162.80},
+      {"date": "2024-08-09", "close": 162.15},
+      {"date": "2024-08-08", "close": 161.48},
+      {"date": "2024-08-07", "close": 162.93},
+      {"date": "2024-08-06", "close": 162.67}
+    ]
+  },
+  {
+    "symbol": "V",
+    "name": "Visa Inc.",
+    "value": 272.30,
+    "change": 1.62,
+    "changePercent": 0.60,
+    "timestamp": "2024-08-12T20:00:00Z",
+    "high52Week": 280.09,
+    "low52Week": 227.95,
+    "marketCap": 562000000000,
+    "volume": 8765432,
+    "sector": "Financials",
+    "historicalData": [
+      {"date": "2024-08-12", "close": 272.30},
+      {"date": "2024-08-09", "close": 270.68},
+      {"date": "2024-08-08", "close": 269.85},
+      {"date": "2024-08-07", "close": 271.42},
+      {"date": "2024-08-06", "close": 271.18}
+    ]
+  }
+]

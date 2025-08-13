@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Sidebar } from '@/components/navigation/sidebar'
+import { TodoProvider } from '@/lib/todo-context'
+import { Toaster } from '@/components/ui/toaster'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,27 +27,30 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <div className="relative min-h-screen bg-background">
-          {/* Sidebar Navigation */}
-          <Sidebar />
-          
-          {/* Main Content Area */}
-          <main className="transition-all duration-300 md:ml-64">
-            {/* Responsive Content Container */}
-            <div className="min-h-screen">
-              {/* Top padding for mobile header */}
-              <div className="h-16 md:hidden" />
-              
-              {/* Page Content with responsive padding */}
-              <div className="container mx-auto px-4 py-6 sm:px-6 lg:px-8">
-                {/* Dashboard Grid Container */}
-                <div className="mx-auto max-w-7xl">
-                  {children}
+        <TodoProvider>
+          <div className="relative min-h-screen bg-background">
+            {/* Sidebar Navigation */}
+            <Sidebar />
+            
+            {/* Main Content Area */}
+            <main className="transition-all duration-300 md:ml-64">
+              {/* Responsive Content Container */}
+              <div className="min-h-screen">
+                {/* Top padding for mobile header */}
+                <div className="h-16 md:hidden" />
+                
+                {/* Page Content with responsive padding */}
+                <div className="container mx-auto px-4 py-6 sm:px-6 lg:px-8">
+                  {/* Dashboard Grid Container */}
+                  <div className="mx-auto max-w-7xl">
+                    {children}
+                  </div>
                 </div>
               </div>
-            </div>
-          </main>
-        </div>
+            </main>
+          </div>
+          <Toaster />
+        </TodoProvider>
       </body>
     </html>
   )

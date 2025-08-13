@@ -87,6 +87,11 @@ const navigationItems: NavItem[] = [
     href: '/accounts',
     icon: Users,
   },
+  {
+    title: 'Investors',
+    href: '/investors',
+    icon: Users,
+  },
 ]
 
 const bottomNavigationItems: NavItem[] = [

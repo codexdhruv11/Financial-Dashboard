@@ -162,3 +162,30 @@ export interface MarketSummary {
   }[]
 }
 
+// Todo System Types
+export enum TodoStatus {
+  Open = "open",
+  Completed = "completed",
+  Wished = "wished",
+  Reminded = "reminded",
+}
+
+export interface Todo {
+  id: string
+  title: string
+  description?: string
+  scheme?: string // For filtering on investors page
+  createdAt: string
+  status: TodoStatus
+  remindAt?: string // For future reminder functionality
+}
+
+export interface TodoContextType {
+  todos: Todo[]
+  addTodo: (title: string, description?: string, scheme?: string) => void
+  completeTodo: (id: string) => void
+  wishTodo: (id: string) => void
+  remindTodo: (id: string) => void
+  removeTodo: (id: string) => void
+}
+

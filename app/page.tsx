@@ -11,6 +11,7 @@ import {
   AssetsManagement,
   MarketOverview,
   LeadsOverview,
+  ToDoSection,
 } from '@/components/dashboard'
 import { Button } from '@/components/ui/button'
 import { 
@@ -124,6 +125,16 @@ export default function DashboardPage() {
             iconColor="primary"
           />
         </StatCardGrid>
+      </div>
+
+      {/* Alerts & To-Do Section */}
+      <div>
+        <SectionHeader
+          title="Alerts & To-Do"
+          description="Important tasks and investment opportunities"
+          variant="compact"
+        />
+        <ToDoSection />
       </div>
 
       {/* Transaction Snapshot Section */}

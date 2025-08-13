@@ -917,3 +917,77 @@ export function generateLeadTrendData(
   
   return trendData
 }
+
+// Todo System Utilities
+
+/**
+ * Generate unique ID for todo items
+ */
+export function generateTodoId(): string {
+  return `todo-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
+}
+
+/**
+ * Create sample todos for demonstration
+ */
+export function createSampleTodos() {
+  return [
+    {
+      id: generateTodoId(),
+      title: "Review HDFC Mid-Cap Fund Performance",
+      description: "Quarterly review of HDFC Mid-Cap Opportunities Fund returns and rebalancing decision",
+      scheme: "HDFC Mid-Cap",
+      createdAt: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
+      status: 'open' as const,
+    },
+    {
+      id: generateTodoId(),
+      title: "Market Alert: Tech Sector Correction",
+      description: "Technology sector showing 10% correction - consider increasing allocation",
+      createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
+      status: 'open' as const,
+    },
+    {
+      id: generateTodoId(),
+      title: "ICICI Prudential Bluechip Fund - New NFO",
+      description: "New fund offer closing on 15th March. Min investment ₹5,000",
+      scheme: "ICICI Bluechip",
+      createdAt: new Date().toISOString(),
+      status: 'open' as const,
+    },
+  ]
+}
+
+/**
+ * Format todo date for display
+ */
+export function formatTodoDate(date: string): string {
+  const dateObj = new Date(date)
+  const now = new Date()
+  const diffInHours = Math.floor((now.getTime() - dateObj.getTime()) / (1000 * 60 * 60))
+  
+  if (diffInHours < 1) return 'Just now'
+  if (diffInHours < 24) return `${diffInHours} hour${diffInHours > 1 ? 's' : ''} ago`
+  if (diffInHours < 48) return 'Yesterday'
+  if (diffInHours < 168) return `${Math.floor(diffInHours / 24)} days ago`
+  
+  return dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+}
+
+/**
+ * Get color classes for todo status
+ */
+export function getTodoStatusColor(status: string): string {
+  switch (status) {
+    case 'open':
+      return 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
+    case 'completed':
+      return 'text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20'
+    case 'wished':
+      return 'text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20'
+    case 'reminded':
+      return 'text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-900/20'
+    default:
+      return 'text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-900/20'
+  }
+}

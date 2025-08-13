@@ -29,6 +29,9 @@ export { LeadsOverview } from './leads-overview'
 export { ChannelBreakdown } from './channel-breakdown'
 export { ProspectCompanies } from './prospect-companies'
 
+// Todo Section component
+export { ToDoSection } from './todo-section'
+
 // Chart components
 export { AssetAllocationChart } from './asset-allocation-chart'
 export type { AssetAllocationChartProps } from './asset-allocation-chart'

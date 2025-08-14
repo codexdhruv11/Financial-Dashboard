@@ -63,7 +63,7 @@ export function AssetsManagement({ className }: AssetsManagementProps) {
 
   return (
     <div className={cn("space-y-6", className)}>
-      {/* Portfolio Summary Cards */}
+      {/* Quick summary of how the portfolio is doing */}
       <StatCardGrid columns={4}>
         <StatCard
           label="Total Portfolio Value"
@@ -97,15 +97,15 @@ export function AssetsManagement({ className }: AssetsManagementProps) {
         />
       </StatCardGrid>
 
-      {/* Top Schemes Section */}
+      {/* Best performing investments right now */}
       <div>
         <h3 className="text-lg font-semibold mb-4">Top Schemes</h3>
         <TopSchemes assets={assets} />
       </div>
 
-      {/* Asset Allocation and Scheme List */}
+      {/* Split view showing allocation and holdings */}
       <div className="grid gap-6 lg:grid-cols-2">
-        {/* Asset Allocation with Tabbed Views */}
+        {/* Nice visual breakdown of where money is invested */}
         <DashboardCard
           title="Asset Allocation"
           description="Portfolio breakdown by category"
@@ -141,7 +141,7 @@ export function AssetsManagement({ className }: AssetsManagementProps) {
           </Tabs>
         </DashboardCard>
 
-        {/* Scheme List */}
+        {/* List of all the investments */}
         <DashboardCard
           title="All Schemes"
           description={`${assets.length} schemes in portfolio`}
@@ -158,7 +158,7 @@ export function AssetsManagement({ className }: AssetsManagementProps) {
   )
 }
 
-// Loading skeleton
+// Shows while we're fetching the data
 export function AssetsManagementSkeleton({
   className
 }: {
@@ -166,7 +166,7 @@ export function AssetsManagementSkeleton({
 }) {
   return (
     <div className={cn("space-y-6", className)}>
-      {/* Skeleton for summary cards */}
+      {/* Loading placeholders for the stat cards */}
       <StatCardGrid columns={4}>
         {[1, 2, 3, 4].map(i => (
           <DashboardCard key={i} variant="compact">
@@ -179,7 +179,7 @@ export function AssetsManagementSkeleton({
         ))}
       </StatCardGrid>
 
-      {/* Skeleton for top schemes */}
+      {/* Loading placeholder for top performers */}
       <div>
         <div className="h-6 w-32 bg-muted rounded animate-pulse mb-4" />
         <div className="grid gap-4 md:grid-cols-2">
@@ -203,7 +203,7 @@ export function AssetsManagementSkeleton({
         </div>
       </div>
 
-      {/* Skeleton for allocation and list */}
+      {/* Loading placeholders for the main content */}
       <div className="grid gap-6 lg:grid-cols-2">
         <DashboardCard>
           <div className="space-y-4">

@@ -3,20 +3,20 @@ import { promises as fs } from 'fs'
 import path from 'path'
 import { MarketData, MarketSummary } from '@/types'
 
-// Mark route as dynamic
+// Dynamic route for real-time market data
 export const dynamic = 'force-dynamic'
 
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams
     
-    // Get query parameters
+    // Extract filtering parameters
     const symbols = searchParams.get('symbols')?.split(',')
     const sector = searchParams.get('sector')
     const startDate = searchParams.get('startDate')
     const endDate = searchParams.get('endDate')
     
-    // Build file path and check existence
+    // Make sure we have market data
     const jsonPath = path.join(process.cwd(), 'public', 'data', 'market-data.json')
     
     try {
@@ -35,21 +35,21 @@ export async function GET(request: NextRequest) {
       )
     }
     
-    // Read the JSON file
+    // Load the market data
     const jsonData = await fs.readFile(jsonPath, 'utf-8')
     let marketData: MarketData[] = JSON.parse(jsonData)
     
-    // Filter by symbols if provided
+    // Only include requested symbols
     if (symbols && symbols.length > 0) {
       marketData = marketData.filter(m => symbols.includes(m.symbol))
     }
     
-    // Filter by sector if provided
+    // Filter to specific sector
     if (sector) {
       marketData = marketData.filter(m => m.sector === sector)
     }
     
-    // Filter historical data by date range if provided
+    // Trim historical data to date range
     if (startDate || endDate) {
       const start = startDate ? new Date(startDate) : new Date('1900-01-01')
       const end = endDate ? new Date(endDate) : new Date()
@@ -63,16 +63,16 @@ export async function GET(request: NextRequest) {
       }))
     }
     
-    // Create market summary
+    // Build the summary response
     const indices = marketData.filter(m => m.sector === 'Index')
     const stocks = marketData.filter(m => m.sector !== 'Index')
     
-    // Find top movers (stocks with highest absolute percentage change)
+    // Find the stocks with biggest moves today
     const topMovers = stocks
       .sort((a, b) => Math.abs(b.changePercent) - Math.abs(a.changePercent))
       .slice(0, 5)
     
-    // Calculate sector performance
+    // Average performance by sector
     const sectorMap = new Map<string, { total: number, count: number }>()
     
     stocks.forEach(stock => {
@@ -98,7 +98,7 @@ export async function GET(request: NextRequest) {
       sectorPerformance
     }
     
-    // Return the response
+    // Send back the market summary
     return NextResponse.json({
       success: true,
       data: summary

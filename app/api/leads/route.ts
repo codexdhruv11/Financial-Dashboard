@@ -70,12 +70,36 @@ export async function GET(request: NextRequest) {
       leads = leads.filter(l => new Date(l.createdDate) <= end)
     }
     
-    // Apply scheme filter
+    // Apply scheme filter with resilient fuzzy matching
     if (scheme) {
+      const q = scheme.toLowerCase().trim()
+      const brand = q.split(/\s+/)[0] || ''
+      
+      // Mapping for known scheme aliases
+      const schemeAliases: Record<string, string[]> = {
+        'bluechip': ['balanced', 'blue chip'],
+        'midcap': ['mid-cap', 'mid cap'],
+        'smallcap': ['small-cap', 'small cap']
+      }
+      
       leads = leads.filter(l => {
         const leadWithScheme = l as any
-        return leadWithScheme.scheme && 
-               leadWithScheme.scheme.toLowerCase().includes(scheme.toLowerCase())
+        const s = (leadWithScheme.scheme || '').toLowerCase()
+        if (!s) return false
+        
+        // Direct match or partial match
+        if (s.includes(q) || q.includes(s)) return true
+        
+        // Brand-level match (first word)
+        if (brand && s.includes(brand)) return true
+        
+        // Check aliases
+        for (const [key, aliases] of Object.entries(schemeAliases)) {
+          if (q.includes(key) && aliases.some(alias => s.includes(alias))) return true
+          if (aliases.some(alias => q.includes(alias)) && s.includes(key)) return true
+        }
+        
+        return false
       })
     }
     

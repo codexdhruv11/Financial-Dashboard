@@ -22,26 +22,26 @@ export function TransactionSnapshot({
   showList = true,
   listLimit = 5
 }: TransactionSnapshotProps) {
-  // Calculate metrics from transactions
+  // Crunch the numbers to get our dashboard metrics
   const metrics = useMemo(() => {
-    // Ensure transactions is an array
+    // Make sure we actually have an array to work with
     const safeTransactions = Array.isArray(transactions) ? transactions : []
     
     const now = new Date()
     const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000)
     
-    // Filter recent transactions (last 30 days)
+    // Just look at the last month's activity
     const recentTransactions = safeTransactions.filter(t => 
       new Date(t.date) >= thirtyDaysAgo
     )
     
-    // Calculate inflow and outflow
+    // Track money coming in vs going out
     let inflow = 0
     let outflow = 0
     let inflowCount = 0
     let outflowCount = 0
     
-    // Count by status
+    // Keep tabs on transaction statuses
     const statusCounts = {
       [TransactionStatus.Pending]: 0,
       [TransactionStatus.Expired]: 0,
@@ -60,13 +60,13 @@ export function TransactionSnapshot({
         outflowCount++
       }
       
-      // Count statuses
+      // Add to the status counts
       if (transaction.status in statusCounts) {
         statusCounts[transaction.status]++
       }
     })
     
-    // Calculate previous period for comparison
+    // Get previous month's data for comparison
     const sixtyDaysAgo = new Date(now.getTime() - 60 * 24 * 60 * 60 * 1000)
     const previousTransactions = safeTransactions.filter(t => {
       const date = new Date(t.date)
@@ -84,7 +84,7 @@ export function TransactionSnapshot({
       }
     })
     
-    // Calculate percentage changes
+    // Figure out if we're doing better or worse
     const inflowChange = previousInflow > 0 
       ? ((inflow - previousInflow) / previousInflow) * 100 
       : 0
@@ -105,14 +105,14 @@ export function TransactionSnapshot({
     }
   }, [transactions])
   
-  // Get most recent transactions for the list
+  // Pick the most recent ones to show
   const displayTransactions = showList 
     ? metrics.recentTransactions.slice(0, listLimit)
     : []
 
   return (
     <div className={cn("space-y-6", className)}>
-      {/* Inflow/Outflow Cards */}
+      {/* Money flow summary cards */}
       <div className="grid gap-4 md:grid-cols-2">
         <StatCard
           label="Total Inflow"
@@ -135,7 +135,7 @@ export function TransactionSnapshot({
         />
       </div>
       
-      {/* Status Badges */}
+      {/* Quick status overview badges */}
       <div className="flex flex-wrap gap-2">
         {metrics.statusCounts[TransactionStatus.Pending] > 0 && (
           <Badge variant="pending" className="gap-1">
@@ -175,7 +175,7 @@ export function TransactionSnapshot({
         )}
       </div>
       
-      {/* Transaction Summary */}
+      {/* Monthly activity summary */}
       <div className="rounded-lg border bg-card p-4">
         <div className="flex items-center justify-between mb-2">
           <h3 className="text-sm font-medium text-muted-foreground">
@@ -219,7 +219,7 @@ export function TransactionSnapshot({
         </div>
       </div>
       
-      {/* Recent Transactions List */}
+      {/* List of latest transactions */}
       {showList && displayTransactions.length > 0 && (
         <div>
           <h3 className="text-lg font-semibold mb-3">Recent Transactions</h3>
@@ -234,7 +234,7 @@ export function TransactionSnapshot({
   )
 }
 
-// Loading skeleton for TransactionSnapshot
+// Placeholder while loading transaction data
 export function TransactionSnapshotSkeleton({
   className
 }: {
@@ -242,7 +242,7 @@ export function TransactionSnapshotSkeleton({
 }) {
   return (
     <div className={cn("space-y-6", className)}>
-      {/* Skeleton for cards */}
+      {/* Loading cards */}
       <div className="grid gap-4 md:grid-cols-2">
         <div className="rounded-lg border bg-card p-6 animate-pulse">
           <div className="h-4 w-24 bg-muted rounded mb-2" />
@@ -256,14 +256,14 @@ export function TransactionSnapshotSkeleton({
         </div>
       </div>
       
-      {/* Skeleton for badges */}
+      {/* Loading badges */}
       <div className="flex gap-2">
         <div className="h-6 w-20 bg-muted rounded-full animate-pulse" />
         <div className="h-6 w-24 bg-muted rounded-full animate-pulse" />
         <div className="h-6 w-20 bg-muted rounded-full animate-pulse" />
       </div>
       
-      {/* Skeleton for summary */}
+      {/* Loading summary */}
       <div className="rounded-lg border bg-card p-4 animate-pulse">
         <div className="h-4 w-48 bg-muted rounded mb-2" />
         <div className="h-6 w-16 bg-muted rounded" />

@@ -32,13 +32,13 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Fetch transactions from API
+    // Let's grab the transaction data when the component loads
     const fetchTransactions = async () => {
       try {
         const response = await fetch('/api/transactions')
         if (response.ok) {
           const result = await response.json()
-          // Handle paginated response structure
+          // The API returns paginated data, so we need to dig into the nested structure
           if (result.success && result.data) {
             setTransactions(result.data.data || [])
           } else {
@@ -58,7 +58,7 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-8">
-      {/* Page Header with new SectionHeader component */}
+      {/* Main dashboard header with branding and quick actions */}
       <SectionHeader
         title="Dashboard"
         description="Welcome to your financial dashboard - Track your portfolio performance and market insights"
@@ -82,7 +82,7 @@ export default function DashboardPage() {
         }
       />
 
-      {/* Key Metrics using StatCard components */}
+      {/* Quick stats to show portfolio health at a glance */}
       <div>
         <SectionHeader
           title="Key Metrics"
@@ -127,7 +127,7 @@ export default function DashboardPage() {
         </StatCardGrid>
       </div>
 
-      {/* Alerts & To-Do Section */}
+      {/* Important stuff that needs attention today */}
       <div>
         <SectionHeader
           title="Alerts & To-Do"
@@ -137,7 +137,7 @@ export default function DashboardPage() {
         <ToDoSection />
       </div>
 
-      {/* Transaction Snapshot Section */}
+      {/* Money in, money out - the cash flow story */}
       <div>
         <SectionHeader
           title="Transaction Overview"
@@ -151,7 +151,7 @@ export default function DashboardPage() {
         />
       </div>
 
-      {/* Assets Management Section */}
+      {/* Where your money lives and how it's doing */}
       <div>
         <SectionHeader
           title="Assets Management"
@@ -161,7 +161,7 @@ export default function DashboardPage() {
         <AssetsManagement />
       </div>
 
-      {/* Market Insights */}
+      {/* What's happening in the markets right now */}
       <div>
         <SectionHeader
           title="Market Overview"
@@ -171,7 +171,7 @@ export default function DashboardPage() {
         <MarketOverview />
       </div>
 
-      {/* Leads Overview */}
+      {/* Sales pipeline and potential customers */}
       <div>
         <SectionHeader
           title="Leads Overview"
@@ -181,7 +181,7 @@ export default function DashboardPage() {
         <LeadsOverview />
       </div>
 
-      {/* Large Dashboard Card for main content */}
+      {/* Placeholder for the fancy charts coming soon */}
       <DashboardCard
         title="Performance Chart"
         description="Portfolio value over time - Interactive charts will be implemented in Phase 2"
@@ -217,7 +217,7 @@ export default function DashboardPage() {
         </div>
       </DashboardCard>
 
-      {/* Loading State Examples */}
+      {/* Demo of skeleton loaders - delete this in production */}
       <div>
         <SectionHeader
           title="Loading States"

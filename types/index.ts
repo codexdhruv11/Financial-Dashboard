@@ -110,11 +110,23 @@ export interface Lead {
   assignedTo?: string
   createdDate: string
   lastContactedDate: string
+  scheme?: string // Investment scheme or fund the lead is interested in
   interactionHistory: {
     date: string
     type: 'Call' | 'Email' | 'Meeting' | 'Note'
     summary: string
   }[]
+}
+
+// Investor filtering interface
+export interface InvestorFilters {
+  search?: string
+  status?: LeadStatus
+  source?: LeadSource
+  scheme?: string
+  assignedTo?: string
+  sortBy?: 'name' | 'value' | 'date'
+  sortOrder?: 'asc' | 'desc'
 }
 
 // Utility type for paginated API responses

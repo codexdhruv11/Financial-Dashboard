@@ -114,6 +114,8 @@ export async function getLeads(params?: {
   pageSize?: number
   sortBy?: string
   sortOrder?: string
+  scheme?: string
+  search?: string
 }): Promise<PaginatedResponse<Lead>> {
   const url = buildUrl('/api/leads', params)
   return fetchWithErrorHandling<PaginatedResponse<Lead>>(url)

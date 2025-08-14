@@ -21,6 +21,8 @@ export async function GET(request: NextRequest) {
     const pageSize = parseInt(searchParams.get('pageSize') || '10')
     const sortBy = searchParams.get('sortBy') || 'createdDate'
     const sortOrder = searchParams.get('sortOrder') || 'desc'
+    const scheme = searchParams.get('scheme')
+    const search = searchParams.get('search')
     
     // Build file path and check existence
     const jsonPath = path.join(process.cwd(), 'public', 'data', 'leads.json')
@@ -66,6 +68,26 @@ export async function GET(request: NextRequest) {
     if (endDate) {
       const end = new Date(endDate)
       leads = leads.filter(l => new Date(l.createdDate) <= end)
+    }
+    
+    // Apply scheme filter
+    if (scheme) {
+      leads = leads.filter(l => {
+        const leadWithScheme = l as any
+        return leadWithScheme.scheme && 
+               leadWithScheme.scheme.toLowerCase().includes(scheme.toLowerCase())
+      })
+    }
+    
+    // Apply search filter
+    if (search) {
+      const searchLower = search.toLowerCase()
+      leads = leads.filter(l => 
+        l.company.toLowerCase().includes(searchLower) ||
+        l.contactName.toLowerCase().includes(searchLower) ||
+        l.contactEmail.toLowerCase().includes(searchLower) ||
+        (l.contactPhone && l.contactPhone.includes(search))
+      )
     }
     
     // If analytics is requested, return lead analytics

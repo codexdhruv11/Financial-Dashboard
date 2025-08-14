@@ -202,7 +202,7 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Mobile Menu Button */}
+      {/* Hamburger menu for mobile screens */}
       <Button
         variant="outline"
         size="icon"
@@ -217,7 +217,7 @@ export function Sidebar() {
         )}
       </Button>
 
-      {/* Sidebar */}
+      {/* Main navigation sidebar */}
       <aside
         className={cn(
           "fixed left-0 top-0 z-40 h-screen w-64 transform bg-card border-r transition-transform duration-300 ease-in-out md:translate-x-0",
@@ -225,7 +225,7 @@ export function Sidebar() {
         )}
       >
         <div className="flex h-full flex-col">
-          {/* Logo/Header */}
+          {/* App logo and branding */}
           <div className="flex h-16 items-center border-b px-6">
             <Link href="/" className="flex items-center space-x-2">
               <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
@@ -235,18 +235,18 @@ export function Sidebar() {
             </Link>
           </div>
 
-          {/* Main Navigation */}
+          {/* Primary navigation menu */}
           <nav className="flex-1 space-y-1 overflow-y-auto px-3 py-4">
             {navigationItems.map(item => renderNavItem(item))}
           </nav>
 
-          {/* Bottom Navigation */}
+          {/* Secondary menu items at bottom */}
           <div className="border-t px-3 py-4">
             <nav className="space-y-1">
               {bottomNavigationItems.map(item => renderNavItem(item))}
             </nav>
             
-            {/* User Profile Section */}
+            {/* Current user info and logout */}
             <div className="mt-4 flex items-center rounded-lg border p-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
                 <span className="text-sm font-medium">DK</span>
@@ -263,7 +263,7 @@ export function Sidebar() {
         </div>
       </aside>
 
-      {/* Mobile Overlay */}
+      {/* Dark overlay when mobile menu is open */}
       {isMobileMenuOpen && (
         <div
           className="fixed inset-0 z-30 bg-black/50 md:hidden"

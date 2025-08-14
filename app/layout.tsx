@@ -29,19 +29,19 @@ export default function RootLayout({
       <body className={inter.className}>
         <TodoProvider>
           <div className="relative min-h-screen bg-background">
-            {/* Sidebar Navigation */}
+            {/* The sidebar that follows you everywhere */}
             <Sidebar />
             
-            {/* Main Content Area */}
+            {/* This is where the magic happens */}
             <main className="transition-all duration-300 md:ml-64">
-              {/* Responsive Content Container */}
+              {/* Making sure content fits nicely on all screens */}
               <div className="min-h-screen">
-                {/* Top padding for mobile header */}
+                {/* Space for mobile menu button */}
                 <div className="h-16 md:hidden" />
                 
-                {/* Page Content with responsive padding */}
+                {/* Content wrapper with proper spacing */}
                 <div className="container mx-auto px-4 py-6 sm:px-6 lg:px-8">
-                  {/* Dashboard Grid Container */}
+                  {/* Keep everything centered and tidy */}
                   <div className="mx-auto max-w-7xl">
                     {children}
                   </div>

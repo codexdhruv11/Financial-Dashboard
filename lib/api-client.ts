@@ -14,7 +14,7 @@ import {
 } from '@/types'
 import { getCachedData, setCachedData } from './data-fetching'
 
-// API Client Configuration
+// Config options for our API calls
 interface ApiClientConfig {
   baseURL?: string
   headers?: Record<string, string>
@@ -22,13 +22,13 @@ interface ApiClientConfig {
   timeout?: number
 }
 
-// Request interceptor type
+// Function to mess with requests before they go out
 type RequestInterceptor = (config: RequestInit) => RequestInit | Promise<RequestInit>
 
-// Response interceptor type
+// Function to process responses when they come back
 type ResponseInterceptor = (response: Response) => Response | Promise<Response>
 
-// API Client Class
+// Main class that handles all our API communication
 export class ApiClient {
   private baseURL: string
   private headers: Record<string, string>
@@ -47,17 +47,17 @@ export class ApiClient {
     this.timeout = config.timeout ?? 30000
   }
 
-  // Add request interceptor
+  // Hook into requests before they're sent
   addRequestInterceptor(interceptor: RequestInterceptor) {
     this.requestInterceptors.push(interceptor)
   }
 
-  // Add response interceptor
+  // Hook into responses after they arrive
   addResponseInterceptor(interceptor: ResponseInterceptor) {
     this.responseInterceptors.push(interceptor)
   }
 
-  // Build full URL
+  // Piece together the complete URL with params
   private buildURL(endpoint: string, params?: Record<string, any>): string {
     const url = new URL(endpoint, this.baseURL || window.location.origin)
     
@@ -76,7 +76,7 @@ export class ApiClient {
     return url.toString()
   }
 
-  // Apply request interceptors
+  // Run all the request hooks in order
   private async applyRequestInterceptors(config: RequestInit): Promise<RequestInit> {
     let finalConfig = config
     
@@ -87,7 +87,7 @@ export class ApiClient {
     return finalConfig
   }
 
-  // Apply response interceptors
+  // Run all the response hooks in order
   private async applyResponseInterceptors(response: Response): Promise<Response> {
     let finalResponse = response
     
@@ -98,7 +98,7 @@ export class ApiClient {
     return finalResponse
   }
 
-  // Generic request method
+  // The workhorse function that actually makes the HTTP calls
   private async request<T>(
     method: string,
     endpoint: string,
@@ -112,18 +112,18 @@ export class ApiClient {
     const url = this.buildURL(endpoint, options?.params)
     const cacheKey = `${method}:${url}`
     
-    // Check cache for GET requests
+    // Only GET requests get cached - no point caching mutations
     if (method === 'GET' && this.cache && options?.cache !== false) {
       const cached = getCachedData<ApiResponse<T>>(cacheKey)
       if (cached) return cached
     }
     
-    // Create abort controller for timeout
+    // Set up timeout handling so we don't wait forever
     const controller = new AbortController()
     const timeoutId = setTimeout(() => controller.abort(), this.timeout)
     
     try {
-      // Prepare request config
+      // Build up the fetch options
       let config: RequestInit = {
         method,
         headers: {
@@ -137,24 +137,24 @@ export class ApiClient {
         config.body = JSON.stringify(options.body)
       }
       
-      // Apply request interceptors
+      // Let interceptors modify the request if needed
       config = await this.applyRequestInterceptors(config)
       
-      // Make request
+      // Fire off the actual HTTP request
       let response = await fetch(url, config)
       
-      // Apply response interceptors
+      // Let interceptors process the response
       response = await this.applyResponseInterceptors(response)
       
-      // Parse response
+      // Extract the JSON data
       const data = await response.json()
       
-      // Handle API errors
+      // Check if something went wrong
       if (!response.ok || !data.success) {
         throw new Error(data.error?.details || `HTTP ${response.status}: ${response.statusText}`)
       }
       
-      // Cache successful GET requests
+      // Save successful GETs for later
       if (method === 'GET' && this.cache && options?.cache !== false) {
         setCachedData(cacheKey, data)
       }
@@ -170,7 +170,7 @@ export class ApiClient {
     }
   }
 
-  // HTTP Methods
+  // Convenience methods for common HTTP verbs
   async get<T>(endpoint: string, params?: Record<string, any>): Promise<ApiResponse<T>> {
     return this.request<T>('GET', endpoint, { params })
   }
@@ -187,7 +187,7 @@ export class ApiClient {
     return this.request<T>('DELETE', endpoint, { params })
   }
 
-  // Specific API methods
+  // Business-specific methods for our app's endpoints
 
   async fetchTransactions(params?: {
     type?: TransactionType
@@ -280,7 +280,7 @@ export class ApiClient {
     return response.data!
   }
 
-  // Batch operations
+  // Fetch multiple things at once for the dashboard
   async fetchDashboardData(): Promise<{
     portfolio: PortfolioSummary
     market: MarketSummary
@@ -303,12 +303,12 @@ export class ApiClient {
   }
 }
 
-// Create default instance
+// Set up a ready-to-use client instance
 const apiClient = new ApiClient()
 
-// Add default request interceptor for authentication (example)
+// Automatically attach auth token to all requests if we have one
 apiClient.addRequestInterceptor((config) => {
-  // Add auth token if available
+  // Check if user is logged in and add their token
   const token = typeof window !== 'undefined' ? localStorage.getItem('authToken') : null
   if (token) {
     config.headers = {
@@ -319,15 +319,15 @@ apiClient.addRequestInterceptor((config) => {
   return config
 })
 
-// Add default response interceptor for error handling
+// Log any API errors for debugging
 apiClient.addResponseInterceptor(async (response) => {
-  // Log errors
+  // Keep track of what went wrong
   if (!response.ok) {
     console.error(`API Error: ${response.status} ${response.statusText}`)
   }
   return response
 })
 
-// Export default instance and class
+// Export both the instance and the class in case someone needs a custom client
 export default apiClient
 export { apiClient }

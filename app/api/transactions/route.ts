@@ -3,14 +3,14 @@ import { promises as fs } from 'fs'
 import path from 'path'
 import { Transaction, TransactionType, TransactionStatus } from '@/types'
 
-// Mark route as dynamic
+// Tell Next.js this route needs to be dynamic (not static)
 export const dynamic = 'force-dynamic'
 
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams
     
-    // Get query parameters
+    // Extract all the filter and pagination params
     const type = searchParams.get('type') as TransactionType | null
     const status = searchParams.get('status') as TransactionStatus | null
     const startDate = searchParams.get('startDate')
@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
     const sortBy = searchParams.get('sortBy') || 'date'
     const sortOrder = searchParams.get('sortOrder') || 'desc'
     
-    // Build file path and check existence
+    // Find the JSON file and make sure it exists
     const jsonPath = path.join(process.cwd(), 'public', 'data', 'transactions.json')
     
     try {
@@ -39,11 +39,11 @@ export async function GET(request: NextRequest) {
       )
     }
     
-    // Read the JSON file
+    // Load up all the transaction data
     const jsonData = await fs.readFile(jsonPath, 'utf-8')
     let transactions: Transaction[] = JSON.parse(jsonData)
     
-    // Apply filters
+    // Filter the data based on what was requested
     if (type) {
       transactions = transactions.filter(t => t.type === type)
     }
@@ -62,7 +62,7 @@ export async function GET(request: NextRequest) {
       transactions = transactions.filter(t => new Date(t.date) <= end)
     }
     
-    // Sort transactions
+    // Sort the results
     transactions.sort((a, b) => {
       let comparison = 0
       
@@ -83,14 +83,14 @@ export async function GET(request: NextRequest) {
       return sortOrder === 'desc' ? -comparison : comparison
     })
     
-    // Calculate pagination
+    // Figure out which page of results to return
     const total = transactions.length
     const totalPages = Math.ceil(total / pageSize)
     const startIndex = (page - 1) * pageSize
     const endIndex = startIndex + pageSize
     const paginatedTransactions = transactions.slice(startIndex, endIndex)
     
-    // Return paginated response
+    // Send back the results with pagination info
     return NextResponse.json({
       success: true,
       data: {

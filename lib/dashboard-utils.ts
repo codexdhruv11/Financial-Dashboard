@@ -186,15 +186,16 @@ function getRelativeTime(date: Date): string {
  * Generate chart colors based on theme
  */
 export function getChartColors(count: number = 8): string[] {
+  // Use actual HSL values instead of CSS variables for Chart.js compatibility
   const baseColors = [
-    'hsl(var(--chart-1))',
-    'hsl(var(--chart-2))',
-    'hsl(var(--chart-3))',
-    'hsl(var(--chart-4))',
-    'hsl(var(--chart-5))',
-    'hsl(var(--chart-6))',
-    'hsl(var(--chart-7))',
-    'hsl(var(--chart-8))',
+    'hsl(220, 70%, 50%)',  // Blue
+    'hsl(160, 60%, 45%)',  // Green
+    'hsl(30, 80%, 55%)',   // Orange
+    'hsl(280, 65%, 60%)',  // Purple
+    'hsl(340, 75%, 55%)',  // Pink
+    'hsl(200, 80%, 50%)',  // Cyan
+    'hsl(120, 65%, 40%)',  // Green
+    'hsl(45, 90%, 60%)',   // Yellow
   ]
 
   if (count <= baseColors.length) {
@@ -730,14 +731,15 @@ export function prepareAssetAllocationChartData(allocation: {
       data: allocation.map(a => a.value),
       backgroundColor: colors,
       borderColor: colors.map(color => {
-        // Use CSS Color 4 slash syntax for alpha channel
-        if (color.startsWith('hsl(var(--')) {
-          // For CSS variables, append alpha directly
-          const withAlpha = color.replace(')', ' / 0.8)')
-          return withAlpha
+        // Create a slightly darker version for borders
+        // Extract HSL values and reduce lightness by 10%
+        const match = color.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/)
+        if (match) {
+          const [_, h, s, l] = match
+          const newL = Math.max(0, parseInt(l) - 10)
+          return `hsl(${h}, ${s}%, ${newL}%)`
         }
-        // For dynamically generated HSL colors
-        return color.replace(')', ' / 0.8)')
+        return color
       }),
       borderWidth: 2,
       hoverOffset: 4,
@@ -762,14 +764,15 @@ export function prepareChannelDistributionChartData(channels: {
       data: channels.map(c => c.count),
       backgroundColor: colors,
       borderColor: colors.map(color => {
-        // Use CSS Color 4 slash syntax for alpha channel
-        if (color.startsWith('hsl(var(--')) {
-          // For CSS variables, append alpha directly
-          const withAlpha = color.replace(')', ' / 0.8)')
-          return withAlpha
+        // Create a slightly darker version for borders
+        // Extract HSL values and reduce lightness by 10%
+        const match = color.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/)
+        if (match) {
+          const [_, h, s, l] = match
+          const newL = Math.max(0, parseInt(l) - 10)
+          return `hsl(${h}, ${s}%, ${newL}%)`
         }
-        // For dynamically generated HSL colors
-        return color.replace(')', ' / 0.8)')
+        return color
       }),
       borderWidth: 2,
       hoverOffset: 4,

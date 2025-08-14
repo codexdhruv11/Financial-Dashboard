@@ -8,10 +8,10 @@ import {
   ApiResponse 
 } from '@/types'
 
-// Base URL for API calls - in production this would be an environment variable
+// Where all our API calls go - TODO: move to env var
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || ''
 
-// Helper function to construct URL with query params
+// Build URLs with all the filter parameters
 function buildUrl(endpoint: string, params?: Record<string, any>): string {
   const url = new URL(endpoint, API_BASE_URL || window.location.origin)
   
@@ -26,7 +26,7 @@ function buildUrl(endpoint: string, params?: Record<string, any>): string {
   return url.toString()
 }
 
-// Generic fetch wrapper with error handling
+// Our standard fetch function that handles errors nicely
 async function fetchWithErrorHandling<T>(
   url: string,
   options?: RequestInit
@@ -57,7 +57,7 @@ async function fetchWithErrorHandling<T>(
   }
 }
 
-// Server-side data fetching functions (for use in Server Components)
+// Functions for fetching data on the server side
 
 export async function getTransactions(params?: {
   type?: string
@@ -132,12 +132,12 @@ export async function getLeadAnalytics(params?: {
   return fetchWithErrorHandling<any>(url)
 }
 
-// Client-side hooks (for use in Client Components)
-// These would typically use SWR or React Query in production
+// React hooks for client-side data fetching
+// Note: In a real app we'd use SWR or React Query
 
 import { useState, useEffect, useRef } from 'react'
 
-// Deep comparison utility for hook dependencies
+// Check if hook dependencies actually changed
 function useDeepCompareMemo<T>(value: T): T {
   const ref = useRef<T>(value)
   const signalRef = useRef<number>(0)
@@ -150,7 +150,7 @@ function useDeepCompareMemo<T>(value: T): T {
   return ref.current
 }
 
-// Simple deep equality check
+// Basic deep equality - good enough for our needs
 function deepEqual(a: any, b: any): boolean {
   if (a === b) return true
   if (a == null || b == null) return false
@@ -345,7 +345,7 @@ export function useLeads(params?: Parameters<typeof getLeads>[0]) {
   return { data, loading, error }
 }
 
-// Data transformation utilities
+// Helpers to format data for display
 
 export function transformTransactionData(transactions: Transaction[]) {
   return transactions.map(t => ({
@@ -372,7 +372,7 @@ export function calculatePortfolioMetrics(assets: Asset[]) {
   }
 }
 
-// Caching utilities
+// Simple in-memory cache to avoid repeated API calls
 
 const cache = new Map<string, { data: any; timestamp: number }>()
 const CACHE_DURATION = 5 * 60 * 1000 // 5 minutes
@@ -399,7 +399,7 @@ export function setCachedData(key: string, data: any): void {
   })
 }
 
-// Retry logic for failed requests
+// Retry failed requests with exponential backoff
 
 export async function fetchWithRetry<T>(
   fetchFn: () => Promise<T>,

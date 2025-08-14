@@ -22,9 +22,7 @@ import {
   LucideIcon
 } from 'lucide-react'
 
-/**
- * Format a number as currency
- */
+// Turn numbers into nice currency strings
 export function formatCurrency(
   value: number,
   currency: string = 'USD',
@@ -38,9 +36,7 @@ export function formatCurrency(
   }).format(value)
 }
 
-/**
- * Format a large number with abbreviations (K, M, B, T)
- */
+// Make big numbers readable (1.2K, 3.4M, etc.)
 export function formatCompactNumber(value: number): string {
   const formatter = new Intl.NumberFormat('en-US', {
     notation: 'compact',
@@ -50,9 +46,7 @@ export function formatCompactNumber(value: number): string {
   return formatter.format(value)
 }
 
-/**
- * Calculate percentage change between two values
- */
+// Figure out the percentage change between old and new values
 export function calculatePercentageChange(
   current: number,
   previous: number
@@ -61,9 +55,7 @@ export function calculatePercentageChange(
   return ((current - previous) / previous) * 100
 }
 
-/**
- * Format a percentage value
- */
+// Format percentages with proper signs and decimals
 export function formatPercentage(
   value: number,
   decimals: number = 1,
@@ -74,9 +66,7 @@ export function formatPercentage(
   return `${sign}${formatted}%`
 }
 
-/**
- * Determine trend direction based on values
- */
+// Is this going up, down, or staying flat?
 export function getTrendDirection(
   current: number,
   previous: number,
@@ -87,9 +77,7 @@ export function getTrendDirection(
   return 'neutral'
 }
 
-/**
- * Get CSS classes for metric state
- */
+// Apply color coding based on performance thresholds
 export function getMetricStateClasses(
   value: number,
   thresholds?: {
@@ -116,9 +104,7 @@ export function getMetricStateClasses(
   return ''
 }
 
-/**
- * Format a date for display in dashboard
- */
+// Format dates in different ways for the dashboard
 export function formatDashboardDate(
   date: Date | string,
   format: 'short' | 'medium' | 'long' | 'relative' = 'medium'
@@ -151,9 +137,7 @@ export function formatDashboardDate(
   }
 }
 
-/**
- * Get relative time string (e.g., "2 hours ago", "in 3 days")
- */
+// Convert dates to human-readable time like "2 hours ago"
 function getRelativeTime(date: Date): string {
   const now = new Date()
   const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000)
@@ -182,11 +166,9 @@ function getRelativeTime(date: Date): string {
   return 'just now'
 }
 
-/**
- * Generate chart colors based on theme
- */
+// Create a nice set of colors for charts
 export function getChartColors(count: number = 8): string[] {
-  // Use actual HSL values instead of CSS variables for Chart.js compatibility
+  // Using real HSL values since Chart.js doesn't understand CSS variables
   const baseColors = [
     'hsl(220, 70%, 50%)',  // Blue
     'hsl(160, 60%, 45%)',  // Green
@@ -202,7 +184,7 @@ export function getChartColors(count: number = 8): string[] {
     return baseColors.slice(0, count)
   }
 
-  // Generate additional colors if needed
+  // Need more colors? Generate them programmatically
   const colors = [...baseColors]
   for (let i = baseColors.length; i < count; i++) {
     colors.push(`hsl(${(i * 360) / count}, 60%, 50%)`)
